@@ -14,8 +14,8 @@ The AI-Driven IoT Fertilizer Advisor is an innovative solution designed to advan
 ## System Architecture
 The following diagram illustrates the high-level architecture of the AI-Driven IoT Fertilizer Advisor system, showcasing the integration of IoT sensors, AI processing, and the web application.
 
-![System Architecture Diagram](images/device_diagram.png)
-![Web App Architecture Diagram](images/app_diagram.png)
+![System Architecture Diagram](images/device-diagram.png)
+![Web App Architecture Diagram](images/app-diagram.png)
 
 
 ## Circuit Schematics
