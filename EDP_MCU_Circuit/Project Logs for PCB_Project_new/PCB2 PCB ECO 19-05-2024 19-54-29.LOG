@@ -1,0 +1,16 @@
+Add Component: Footprint Not Found CAP_WCAP-PTHR_6P3X8P0_WRE
+Add Component: Footprint Not Found CAP_CD15_CND
+Add Component: Footprint Not Found CAP_CD15_CND
+Add Component: Footprint Not Found STA_CF14_STP
+Add Pin To Net: Unknown Pin: Pin C0-1
+Add Pin To Net: Unknown Pin: Pin C0-2
+Add Pin To Net: Unknown Pin: Pin C1-1
+Add Pin To Net: Unknown Pin: Pin C1-2
+Add Pin To Net: Unknown Pin: Pin C2-1
+Add Pin To Net: Unknown Pin: Pin C2-2
+Add Pin To Net: Unknown Pin: Pin R-1
+Add Pin To Net: Unknown Pin: Pin R-2
+Add Class Member: Failed to add class member : Component C0 870055673001
+Add Class Member: Failed to add class member : Component C1 CD15ED300JO3F
+Add Class Member: Failed to add class member : Component C2 CD15ED300JO3F
+Add Class Member: Failed to add class member : Component R 10 k throughhole

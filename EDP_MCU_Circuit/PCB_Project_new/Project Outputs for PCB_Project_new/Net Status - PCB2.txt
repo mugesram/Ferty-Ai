@@ -1,0 +1,13 @@
+Net Status Report
+Filename     : C:\Altium projects\PCB_Project_new\YR1B10KCC\AltiumDesigner\PCB2.PcbDoc
+Date         : 22/08/2024
+Time         : 19:38:55
+Time Elapsed : 00:00:00
+
+Nets, Layer, Length
+    +5, Signal Layers Only, 3972.448mils
+    GND, Signal Layers Only, 2436.62mils
+    NetATmega328_1, Signal Layers Only, 302.071mils
+    NetATmega328_10, Signal Layers Only, 737.279mils
+    NetATmega328_9, Signal Layers Only, 738.493mils
+count : 5

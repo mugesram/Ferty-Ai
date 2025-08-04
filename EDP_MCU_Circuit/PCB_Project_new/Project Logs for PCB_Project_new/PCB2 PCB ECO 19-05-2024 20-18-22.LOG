@@ -1,0 +1,10 @@
+Change Component Description : Designator=C0 Old Description=No Description Available New Description=10uF
+Change Component Description : Designator=C1 Old Description=No Description Available New Description=30pF
+Change Component Description : Designator=C2 Old Description=No Description Available New Description=30pF
+Added Component: Designator=R(RES_TYCO_YR1_TYC)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetR_1 Pin=R-1
+Added Pin To Net: NetName=+5 Pin=R-2
+Added Member To Class: ClassName=Sheet1 Member=Component R YR1B10KCC
