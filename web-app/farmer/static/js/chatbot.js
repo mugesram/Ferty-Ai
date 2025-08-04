@@ -93,7 +93,7 @@ function formatChatGPTResponse(response) {
 }
 
 async function fetchChatGPTResponse(userMessage, history, retries = 3) {
-  const apiKey = "sk-proj-dk0OUSPhuk1v5BbY333IT3BlbkFJ6GaEjo4WQocEVdNdyXz0";
+  const apiKey = "{Your api Key}";
   // Replace with your actual API key
   const apiUrl = "https://api.openai.com/v1/chat/completions"; // Updated endpoint for chat models
 
