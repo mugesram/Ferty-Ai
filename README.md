@@ -14,14 +14,14 @@ The AI-Driven IoT Fertilizer Advisor is an innovative solution designed to advan
 ## System Architecture
 The following diagram illustrates the high-level architecture of the AI-Driven IoT Fertilizer Advisor system, showcasing the integration of IoT sensors, AI processing, and the web application.
 
-![System Architecture Diagram](images/system_diagram.png)
-
+![System Architecture Diagram](images/device_diagram.png)
+![Web App Architecture Diagram](images/app_diagram.png)
 
 
 ## Circuit Schematics
 The circuit diagram below details the wiring and connections for the IoT-based NPK sensor device used in the project.
 
-![Circuit Schematics](images/circuit_schematics.png)
+![Circuit Schematics](images/circuit_schematic.png)
 
 
 
