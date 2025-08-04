@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+{% include "nav.html" %}
+<div id="calculate_url" data-url="{% url 'calculate_npk' '--n' '--p' '--k' '--plant_id' %}"></div>
+<section class="about_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 px-0">
+          <div class="img_container">
+            <div class="img-box">
+              <img src="{%static 'images/aboutx.jpg' %}" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 px-0">
+          <div class="detail-box">
+            <div class="heading_container ">
+              <h2>
+                Device
+              </h2>
+            </div>
+            <p>
+Welcome to our portal! To connect your measurement device, first switch on the device and wait for a few seconds. Ensure that Bluetooth is enabled on your device. Next, click "Connect" on the portal. A small window will open where you can select your device and click "Pair." Wait until the "Connect" button changes to "Disconnect." Once connected, you are ready to start measuring. Enjoy accurate and efficient readings with our high-tech solutions!
+            </p>
+
+            <button class="button" id="connectBtn">Connect</button>
+
+
+            <br>
+            <p class="text-muted">Click 'Connect' to find available devices </p>
+
+            <div class="device-list" id="deviceList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+<section class="about_section layout_padding">
+    <div class="special_body">
+    <div class="special_container">
+        <div class="instructions">
+            <h2>Instructions</h2>
+            <ul>
+            <li>Fill the provided container with de-ionized or clean water up to the indicated level.</li>
+            <li>Collect a sample of sand from your land, digging to a depth of 10 cm.</li>
+            <li>Fill the container with the collected sand and mix it with the water thoroughly.</li>
+            <li>Ensure the sensor probes are fully submerged in the sand by closing the top with the sensor cover.</li>
+            <li>Click "Start" and wait for 10 seconds to complete the process.</li>
+            <li>For enhanced accuracy, repeat the above process in different areas of your land.</li>
+            <li>Click "Calculate" to obtain readings and suggestions based on the measurements.</li>
+            <li>For optimal accuracy, we recommend dividing your land into (10m x 10m) sections and obtaining readings from each area.More readings will increase accuracy.</li>
+            </ul>
+
+        </div>
+        <div class="timer">
+            <div id="time">0:10</div>
+            <button id="startStopButton" class="special_button">Start</button>
+            <button id="removeReadingButton" class="special_button">Remove</button>
+            <button id="calculateButton" class="special_button">Calculate</button>
+        </div>
+        <div class="status">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Readings</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="readingsTable">
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    </div>
+
+</section>
+<section class="about_section layout_padding">
+    <div class="special_body">
+<div class="special_container">
+        <div class="instructions">
+            <h2>Fertilizer Suggestions</h2>
+            <div >
+             <p id="fertilizer_suggestions"></p>
+            </div>
+        </div>
+        <div class="timer">
+            <div class="row">
+                <p>Choose a plant to plant:</p>
+                <select id="plantDropdown">
+                    {% for plant in plants %}
+                    <option value="{{plant.id}}">{{plant.plant}}</option>
+                    {% endfor %}
+                    <!-- Add more options for other plants as needed -->
+                </select>
+            </div>
+
+            <div class="plant-selection">
+
+                <div class="plant-image">
+                    <img src="{% static 'images\tree.jpg' %}" alt="" style="height:200px">
+                </div> <!-- Space for plant image -->
+            </div>
+        </div>
+
+        <div class="status">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Elements</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="resultTable">
+                    <tr>
+                        <td>Nitogen Level</td>
+                        <td class="status-indicator" data-status="" id="n"> - </td>
+                    </tr>
+                    <tr>
+                        <td>Phosupurus Lvel</td>
+                        <td class="status-indicator" data-status="" id="p">-</td>
+                    </tr>
+                    <tr>
+                        <td>Pottasium Level</td>
+                        <td class="status-indicator" data-status="" id="k">-</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    </div>
+</section>
+<section class="about_section layout_padding">
+    <div class="special_body">
+<div class="special_container">
+        <div class="instructions">
+            <h2>Extra Suggestions</h2>
+            <div id="suggestions">
+
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+</section>
+{% include 'footer.html' %}
+{% endblock  %}

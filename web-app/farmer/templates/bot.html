@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+{% include "nav.html" %}
+ <div id="chat-container">
+        <div id="chat-box">
+            <div id="agribot-welcome" class="welcome-message">
+                <img src="{% static 'images/agribot-image.png' %}" alt="AgriBot" id="agribot-image">
+                <p>Hi, I'm AgriBot! Ask me about farming. Here are some sample questions:</p>
+                <div id="sample-prompts-container">
+                    <div id="sample-prompts">
+                        <div class="sample-prompt">What should I plant in high nitrogen soil?</div>
+                        <div class="sample-prompt">How do I improve soil health?</div>
+                        <div class="sample-prompt">What plants are suitable for potassium-rich soil?</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="user-input-container">
+            <input type="text" id="user-input" placeholder="Ask me about farming...">
+            <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <script src="{% static 'js/chatbot.js' %}"></script>
+{% include 'footer.html' %}
+{% endblock  %}
