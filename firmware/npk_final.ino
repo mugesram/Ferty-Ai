@@ -4,24 +4,30 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
+// OLED display setup
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);
 
-
+// RS485 Control Pins
 #define RE 11
 #define DE 10
 
-
+// Modbus inquiry frames (predefined requests to slave device)
 const byte inquiry_frame[] = {0x01, 0x03, 0x00, 0x1E, 0x00, 0x03, 0x65, 0xCD};
 const byte inquiry_frame_1[] = {0x01, 0x03, 0x00, 0x1E, 0x00, 0x01, 0xE4, 0x0C};
 const byte inquiry_frame_2[] = {0x01, 0x03, 0x00, 0x1F, 0x00, 0x01, 0xB5, 0xCC};
 const byte inquiry_frame_3[] = {0x01, 0x03, 0x00, 0x02, 0x00, 0x01, 0x85, 0xC0};
 
+// Buffers for received values
 byte values[13];
 byte nut[3];
 int command = 0;
-SoftwareSerial mod(5,6);
-SoftwareSerial Bt(2, 3);
+
+// Software serial ports
+SoftwareSerial mod(5,6); // RS485 module connected here
+SoftwareSerial Bt(2, 3); // Bluetooth module connected here
+
+
 void setup() {
   Serial.begin(9600);
   Bt.begin(9600);
@@ -30,6 +36,7 @@ void setup() {
   digitalWrite(RE,LOW);
   digitalWrite(DE,LOW);
 
+  // Initialize OLED
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   display.clearDisplay();
   display.setTextSize(3);
@@ -43,11 +50,15 @@ void setup() {
 void loop() {
   display.clearDisplay();
   delay(250);
+
+  // Check if Bluetooth has received a command
   if(Bt.available()){
     String r = String(Bt.readString());
     command = r.toInt();
   }
   Serial.println(command);
+
+  // If command == 1, start Modbus communication
   if(command == 1){
   Bt.end();  
   mod.begin(9600);  
@@ -55,6 +66,8 @@ void loop() {
   read();
   mod.end();
   Bt.begin(9600);
+
+  // Convert nutrient values to strings
   int n =  nut[0];
   char ns[16];
   itoa(n, ns, 10);
@@ -66,6 +79,8 @@ void loop() {
   int k =  nut[2];
   char ks[16];
   itoa(k, ks, 10);
+
+  // Build comma-separated data string: "N,P,K"
   char deli[16] = ",";
   char data[64] = "";
   strcat(data,ns);
@@ -91,14 +106,17 @@ void loop() {
 }
 
 void read(){
+// Send Modbus inquiry frame and collect response
  
-digitalWrite(DE,HIGH);
+  digitalWrite(DE,HIGH);
   digitalWrite(RE,HIGH);
   delay(10);
   int data = mod.write(inquiry_frame,sizeof(inquiry_frame));
     digitalWrite(DE,LOW);
     digitalWrite(RE,LOW);
     delay(50);
+
+   // Parse valid response and extract nutrient values
     if(mod.available()>0){
     int i=0;
     int nut_c = 0;
@@ -135,7 +153,7 @@ digitalWrite(DE,HIGH);
 
 
 void show(){
-
+  // Simple OLED message during calculation
   display.setTextSize(1);
   display.setCursor(22, 12);
   display.print("Calculating...");
